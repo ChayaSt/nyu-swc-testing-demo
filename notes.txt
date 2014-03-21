@@ -1,0 +1,486 @@
+Welcome to MoPad!
+This pad text is synchronized as you type, so that everyone viewing this page sees the same text.  This allows you to collaborate seamlessly on documents!
+Please be cognizant of whether you are using a public pad or private/team pad, and take appropriate precautions with data you post here!
+ 
+The course website is http://swcarpentry.github.io/2014-03-17-nyu/
+pandas/plot/stuff example: https://github.com/chendaniely/2014-03-18-nyu
+just the notebook in viewer:
+http://nbviewer.ipython.org/github/chendaniely/2014-03-18-nyu/blob/master/Pandas%20Plotting%20Models.ipynb
+2014-03-17
+Bash:
+
+    man = manual, for if you want to know more about something, and see what options are availiable
+
+    pwd = print what/working directory
+
+    ls = list contents of current directory
+
+    ls -lhat
+
+    t = sort by time, r = reverse
+
+    ls - ld temp
+
+    mkdir - make a new directory
+
+    mkdir temp
+
+    chmod - change permissions
+
+    chmod -v = verbose, I will tell you everything that will go on!
+
+    chmod -v g+w temp
+
+    touch
+
+    can be used to create a new/empty file
+
+    also will update the timestamp of an existing file
+
+    cp = copy
+
+    cp too.txt foo2.txt
+
+    rm = remove
+
+    rm foo2.txt
+
+    mv = move (but you can also use this to rename)
+
+    mv foo.txt foo1.txt
+
+    history = return a list of previous typed commands in bash
+
+    > 
+
+    this is a redirect, it will take what ever will would have normally printed in the terminal to a file
+
+    history > history.txt
+
+    it will overwrite the existing file
+
+    >> 
+
+    this is redirect, but will append instead of overwriting
+
+    less
+
+    will show the file in the terminal
+
+    press q to exit
+
+    more
+
+    cat
+
+    less, more cat, will all output text onto your screen
+
+    head
+
+    show top of a file (top 10 lines)
+
+    -n 15
+
+    to show more lines
+
+    tail
+
+    show bottom of a file (last 10 lines)
+
+    press the up arrow will scroll through your history so you don't have to type comands again, keep pressing up to keep going up your terminal
+
+    grep
+
+    GNU regular expression
+
+    lets you search in text files
+
+    grep rm history.txt
+
+    grep rm history.txt -c
+
+    count
+
+    -i
+
+    ignore case
+
+    -b2
+
+    give you 2 lines before and after each 'rm'
+
+    echo $TERM
+
+    echo $SHELL
+
+    alias shortCutName="normal bash commands you want to shortcut"
+
+    you can create them in your .bash_aliases in your home directory
+
+Git - version control
+git config --global user.name "Daniel Chen"
+git config --global user.email "example@example.com"
+    the color will color your terminal output
+    instead of auto, you can also use true
+git config --global core.editor "subl -n -w"
+    use this if you pefer using sublime as your default text editor
+    by default git will use vim
+    sublime == sublime text 2
+    subl == sublime text 3
+    you can use emacs, nano, etc...
+it can be used to avoid this:
+    http://www.phdcomics.com/comics/archive.php?comicid=1531
+
+    git init
+
+    it will make the current folder git tracked
+
+    it will put a .git hidden file
+
+    git is just another terminal command
+
+    git status
+
+    gives you the current status
+
+    let's you know what is going on
+
+    it is your best friend
+
+    git add FILENAME
+
+    this will add the file to be tracked by git
+
+    this means from this point forward any change to the file will be tracked and git will let you know
+
+    git commit -m "message"
+
+    a commit is like hitting 'save'
+
+    commit often
+
+    commit whenever you make a change to your code
+
+    commit messages should be detailed messages to yourself
+
+    git commit without the -m will open a terminal text editor for you to type longer commit messages, the -m messages should not be too long
+
+    git log
+
+    will tell you what is your git history
+
+    newest commits will be on the top
+
+    git bash commands
+
+    you can use normal bash commands in git
+
+    but git also has it's own 'bash' commands
+
+    mv can move/rename files
+
+    git mv will move/rename files that git will know
+
+    git diff
+
+    if git tells you a file has been modified, but you don't know what you did
+
+    - what lines were deleted
+
+    + what lines were added
+
+    git commit -F "commit.txt"
+
+    this will use commit.txt as your entire commit message
+
+    useful for when you need to write a more detailed commit message
+
+    git checkout COMMIT-HASH
+
+    using the commit hash from git log you can go back in time
+
+    detached head?????
+
+    the head points to where in time you are
+
+    when you checkout to a specific commit, you moved the 'head' back in time, it is just pointing to the commit, but not actually there, hense it is 'detached'
+
+    you moved head there, but if you make changes, what EXACTLY do you mean? there is no way for git to know that
+
+    how do you fix it?
+
+    you can attach your head back to a particular location in time
+
+More Git
+
+    To undo changes:
+
+    checkout the specific file
+
+    git reset --hard HEAD  (for all files)
+
+    reset hard will revert all changes back to your last commit
+
+    to just revert one
+
+    unstage the file you want to keep
+
+    git reset -- FILE
+
+    git checkout
+
+    git branch
+
+    to find all the branchs in your current reporitory
+
+    the star next to a branch name tells you which branch you are currently located in
+
+    you can also find out where you are by typing git status
+
+    git branch experimental
+
+    will create an experimental branch at your current head
+
+    git checkout experimental
+
+    this will bring you to the experimental branch
+
+    you can also create a new branch and go stright to it using 'git checkout -b experimental'
+
+    git checkout master
+
+    bring you back to master branch
+
+    git merge experimental
+
+    will merge experimental to master
+
+    note you have to checkout into master before you are merging something into it
+
+    git will prompt you for a commit message when you are performing a merge
+
+    this will either open emacs, vim, or sublime, depending on what type of editor you have set up
+
+    at the bottom of the file, write your message
+
+    save
+
+    quit
+
+    the merge will happen automatically (assuming you have no conflicts)
+
+    git branh -D experimenal
+
+    this will delete the experimental branch
+
+    make sure you are done with it
+
+    as a safe check, git will not let you delete a branch you are in so you will probably be doing  a git checkout master before you are deleting
+
+Python
+strong, dynamically typed language
+interpreted language
+you can also launch the ipython notebook from terminal
+you can cd to a directory of your choice and type 'ipython notebook' it will launch a notebook session in that location, instead of your home folder
+
+    shift enter to launch code
+
+    clt+m+h 
+
+    to open up onscreen keyboard help
+
+    clt+m+b
+
+    to have a new code block below your current block
+
+    clt+m+m 
+
+    to turn current block into a markdown block (for typing notes)
+
+    you can also use regular python comments
+
+    but the markdown mode lets you use markdown!
+
+    and LaTeX
+
+Diving into python
+
+    EVERYTHING is an object
+
+Git
+
+    git remote add upstream https://github.com/mattphotonman/2014-03-17-nyu-exercises.git
+
+    git fetch
+
+    git checkout development
+
+    git pull
+
+    git checkout -b new_branch_name # (example: coolstuff)
+
+    git push origin new_branch_name
+
+    # Do what you need to do here, commits, etc.
+
+    # git commit -m "COMMIT MESSAGE HERE"
+
+    git push origin new_branch_name
+
+    git checkout master
+
+    git merge origin/new_branch_name
+
+    git push origin master
+
+    # If you get an error here, then do a 'git pull'; it will throw you into a
+
+    # text editor to enter a commit message; do this then run
+
+    # 'git push origin development' again.
+
+    git push origin :new_branch_name
+
+    git branch -D new_branch_name
+
+Test driven development
+
+    first make tests
+
+    write some code
+
+    check code against tests
+
+    iff all pass, you're done
+
+More Python
+''' this is a doc stirng '''
+""" this is also a doc string """
+def functionName():
+    pass
+def test_foo():
+    ''' bar'''
+    assert false, 'somehow 1 is not equal to 1.'
+from module import function
+from module import class
+from module import value
+# Fun Data Sources
+http://www.gutenberg.org/cache/epub/2265/pg2265.txt
+http://sydney.edu.au/engineering/it/~matty/Shakespeare/texts/tragedies/hamlet
+ftp://ftp.sunet.se/pub/tv+movies/imdb/taglines.list.gz
+Unexpected behavior with lambda:
+D= {str(x):(x,x%2 != 0,lambda a:a**x) for x in range(10)}
+all of the functinos have the same exponent, 9, when evaluated
+Git w/ David:
+Reviewing commands: 
+--git checkout of a particular hash
+    --git checkout master gets you back to the present
+--git diff to look at changes between commits
+--git show [hash number] tells you what was done in the commit with that hash
+--git merge creates a new state node with two parents
+    --may create conflicts. Open up the conflicted file to see what the conflicts are. HEAD (working copy we have checked out) vs. what was there in the state node you're trying to merge into
+--git push origin master 'is the preferred incantation'
+--git log --graph shows you the branches in ascii art :)
+--git branch shows the branches and which one is checked out
+--git status
+    lets you get a sense of what's untracked, what's uncommitted, etc...
+--the .gitignore file allows you to list files/filetypes that shouldn't even be considered for tracking & committing
+--you can rewrite the history, but it's a pain.
+Create an acct at Github, then you can apply for the student 'discount' (free) so you can make 5 private repos: https://education.github.com/
+Git was developed to work even when you don't have a stable internet connection. ("Talking to the web" is done explicitly, not passively in the background.)
+This is a helpful diagram:
+http://assets.osteele.com/images/2008/git-transport.png
+More on git: http://git-scm.com/book
+The github to fork:
+https://github.com/eglassman/2014-03-17-nyu
+---within the forked repo: git checkout gh-pages
+    switches us to the gh-pages branch, where all the data is, since gh-pages branches are hosted at username.github.io/repo-name
+When commiting to a forked repo:
+--git add file
+--git commit -m 'message'
+--git push origin name-of-my-branch (because you made a separate branch after forking it, to be nice and use good collaborative software form and not ask to commit to the master)
+More Python
+Python package installer http://www.pip-installer.org/en/latest/installing.html
+new way to open files and immediately close them, even if there's an error while processing the file:
+with open(filename) as opened_file:
+    text = opened_file.read()
+Hamlet example
+def read_Hamlet():
+    my_file = open("hamlet.txt")
+    return my_file
+my_file = read_Hamlet()
+wordCounts = dict()
+maxCount = 0
+maxKey = None
+for line in my_file:
+    #if 'Hamlet' in line:
+    #    print line.strip()
+    words = line.split()
+    print words
+    for word in words:
+        if word in wordCounts.keys():
+            wordCounts[word] = wordCounts[word] + 1
+        else:
+            wordCounts[word] = 1
+        if wordCounts[word] > maxCount:
+            maxCount = wordCounts[word]
+            maxKey = word
+    #break
+my_file.close()
+Function-ified
+#functions we defined
+def read_Hamlet(i):
+    #read the file and return a list of lines
+    #I expect i to be a... string or int
+    print i
+    my_file = open("hamlet.txt")
+    theLines = my_file.readlines()
+    print type(theLines)
+    my_file.close()
+    return theLines
+def initializeDictionary():
+    #make a dictionary for our results, and set it up for updating
+    wordCounts = dict()
+    maxCount = 0
+    maxKey = None
+    wordCounts['MAXCOUNT'] = maxCount
+    wordCounts['MAXKEY'] = maxKey
+    wordCounts['NUMWORDS'] = 0
+    return wordCounts
+    
+def updateDictionary(wordCounts, word):
+    #add a word to the dictionary, and/or update the counts
+    if word in wordCounts.keys():
+        wordCounts[word] = wordCounts[word] + 1
+    else:
+        wordCounts[word] = 1
+    if wordCounts[word] > wordCounts['MAXCOUNT']:
+        wordCounts['MAXCOUNT'] = wordCounts[word]
+        wordCounts['MAXKEY'] = word
+def getWords(line):
+    #split a line into words
+    words = line.lower().split()
+    return words
+#main script
+listOfLines = read_Hamlet('This is Elenas example.')
+dictOfWordCounts = initializeDictionary()
+#print dictOfWordCounts
+#print type(listOfLines)
+for line in listOfLines:
+    #print line
+    words = getWords(line)
+    #print words
+    for word in words:
+        updateDictionary(dictOfWordCounts,word)
+dictOfWordCounts.keys()[0:10] #prints out first few keys as sanity check
+def download_webpage(url):
+    '''Downloads a webpage and returns the text.'''
+    page = urllib2.urlopen(url)
+    return page.read()
+ 
+hamlet_url = 'http://sydney.edu.au/engineering/it/~matty/Shakespeare/texts/tragedies/hamlet'
+print(download_webpage(hamlet_url))
+Testing Python
+add to your code at an appropriate place within your function/script:
+    assert _______ (such as isinstance(var,basestring)
+    which should evaluate to True if it is to pass
